@@ -1,10 +1,10 @@
-package random.roomservices;
+package random.reservationbusinessservices;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RoomServicesApplicationTests {
+class ReservationBusinessServicesApplicationTests {
 
     @Test
     void contextLoads() {
