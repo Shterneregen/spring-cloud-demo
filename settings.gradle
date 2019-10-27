@@ -1,0 +1,9 @@
+rootProject.name = 'spring-cloud-demo'
+
+include 'config-server',
+        'eureka-server',
+        'room-services',
+        'guest-services',
+        'reservation-services',
+        'reservation-business-services',
+        'reservation-webapp'

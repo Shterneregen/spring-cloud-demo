@@ -21,6 +21,8 @@ import static springfox.documentation.builders.PathSelectors.any;
 public class RoomServicesApplication {
 
     private static final String CONTACT_NAME = "shterneregen";
+    private static final String GROUP_NAME = "Room";
+    private static final String BASE_PACKAGE = "random.roomservices";
     private static final String API_INFO_TITLE = "Room Services";
     private static final String API_INFO_DESCRIPTION = "A set of services to provide data access to rooms";
     private static final String API_INFO_VERSION = "1.0.0";
@@ -28,11 +30,10 @@ public class RoomServicesApplication {
     @Bean
     public Docket api() {
         Contact contact = new Contact(CONTACT_NAME, null, null);
-        return new Docket(DocumentationType.SWAGGER_2).groupName("Room").select()
-                .apis(RequestHandlerSelectors.basePackage("random.roomservices"))
-                .paths(any()).build().apiInfo(
-                        new ApiInfo(API_INFO_TITLE, API_INFO_DESCRIPTION, API_INFO_VERSION,
-                                null, contact, null, null, new ArrayList<>()));
+        return new Docket(DocumentationType.SWAGGER_2).groupName(GROUP_NAME).select()
+                .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
+                .paths(any()).build().apiInfo(new ApiInfo(API_INFO_TITLE, API_INFO_DESCRIPTION, API_INFO_VERSION,
+                        null, contact, null, null, new ArrayList<>()));
     }
 
     public static void main(String[] args) {
