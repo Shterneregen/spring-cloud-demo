@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import random.reservationwebapp.client.RoomReservationService;
 import random.reservationwebapp.domain.RoomReservation;
@@ -27,10 +26,9 @@ public class ReservationController {
 
     @GetMapping
     public String getReservations(@RequestParam(value = "date", required = false) String dateString, Model model) {
-        String date = dateString;
-        if (StringUtils.isBlank(dateString)) {
-            date = createTodayDateString();
-        }
+        String date = StringUtils.isBlank(dateString)
+                ? createTodayDateString()
+                : dateString;
         List<RoomReservation> roomReservations = roomReservationService.getRoomReservationsForDate(date);
         model.addAttribute("roomReservations", roomReservations);
         return "reservations";

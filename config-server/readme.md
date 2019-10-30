@@ -2,13 +2,14 @@
 
 Windows:
 ```
-cd %userprofile%
+cd /d %userprofile%
 md config
 cd config
 echo server.port=8101>roomservices.properties
 echo management.security.enabled=false>>roomservices.properties
 echo server.port=8500>reservationbusinessservices.properties
 echo management.security.enabled=false>>reservationbusinessservices.properties
+echo management.endpoints.web.exposure.include=hystrix.stream>>reservationbusinessservices.properties
 echo server.port=8102>guestservices.properties
 echo management.security.enabled=false>>guestservices.properties
 echo server.port=8600>reservationapp.properties

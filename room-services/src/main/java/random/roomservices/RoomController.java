@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rooms")
+@RequestMapping(value = "/rooms")
 @Api(value = "rooms", tags = {"rooms"})
 @SwaggerDefinition(tags = {
         @Tag(name = "rooms", description = "Data service operations on rooms")

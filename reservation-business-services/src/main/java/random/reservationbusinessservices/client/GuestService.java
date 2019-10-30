@@ -1,20 +1,17 @@
 package random.reservationbusinessservices.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import random.reservationbusinessservices.domain.Guest;
 
 import java.util.List;
 
-@FeignClient("GUESTSERVICES")
+@FeignClient(value = "GUESTSERVICES", fallback = GuestServiceFallbackImpl.class)
 public interface GuestService {
 
-    @RequestMapping(value = "/guests", method = RequestMethod.GET)
+    @GetMapping(value = "/guests")
     public abstract List<Guest> findAll(@RequestParam(name = "emailAddress", required = false) String emailAddress);
 
-    @RequestMapping(value = "/guests/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/guests/{id}")
     public abstract Guest findOne(@PathVariable(name = "id") long id);
 }

@@ -22,7 +22,7 @@ public class GuestController {
     @Autowired
     private GuestRepository guestRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     @ApiOperation(value = "Get All Guests", notes = "Gets all guests in the system", nickname = "getGuests")
     public List<Guest> findAll(@RequestParam(name = "emailAddress", required = false) String emailAddress) {
         if (StringUtils.isNotBlank(emailAddress)) {

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import random.reservationservices.Reservation;
 import random.reservationservices.ReservationEntity;
 
+import java.sql.Date;
+
 @Component
 public class ReservationTranslator {
 
@@ -25,8 +27,7 @@ public class ReservationTranslator {
         entity.setGuestId(reservation.getGuestId());
         entity.setId(reservation.getId());
         entity.setRoomId(reservation.getRoomId());
-        entity.setDate(new java.sql.Date(
-                this.dateTimeUtils.createDateFromDateString(reservation.getReservationDate()).getTime()));
+        entity.setDate(new Date(dateTimeUtils.createDateFromDateString(reservation.getReservationDate()).getTime()));
         return entity;
     }
 }

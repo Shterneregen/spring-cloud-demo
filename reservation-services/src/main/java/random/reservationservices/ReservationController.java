@@ -6,10 +6,7 @@ import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import random.reservationservices.utils.DateTimeUtils;
 import random.reservationservices.utils.ReservationTranslator;
 
@@ -31,7 +28,7 @@ public class ReservationController {
     @Autowired
     private ReservationTranslator reservationTranslator;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     @ApiOperation(value = "Get All Reservations", notes = "Gets all reservations in the system",
             nickname = "getReservations")
     public List<Reservation> findAll(@RequestParam(name = "date", required = false) String date) {
@@ -42,9 +39,7 @@ public class ReservationController {
             entities = (List<ReservationEntity>) reservationRepository.findAll();
         }
         List<Reservation> reservations = new ArrayList<>(entities.size());
-        entities.forEach(entity -> {
-            reservations.add(reservationTranslator.translateEntityToReservation(entity));
-        });
+        entities.forEach(entity -> reservations.add(reservationTranslator.translateEntityToReservation(entity)));
         return reservations;
     }
 }
