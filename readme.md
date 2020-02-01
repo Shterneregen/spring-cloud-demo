@@ -12,3 +12,8 @@ docker-compose up -d
 ```cmd
 docker-compose down
 ```
+
+![diagram](diagram.jpeg)
+
+---
+Spring Boot, Spring Cloud, Eureka, Hystrix, FeignClient, Thymeleaf, Swagger, H2
