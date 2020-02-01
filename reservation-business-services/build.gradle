@@ -1,6 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.1.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
 }
 
@@ -14,21 +14,22 @@ repositories {
 }
 
 ext {
-    set('springCloudVersion', "Hoxton.RC2")
+    set('springCloudVersion', "Hoxton.SR1")
+    set('swaggerVersion', "2.9.2")
 }
 
 dependencies {
     implementation(
-            'org.springframework.boot:spring-boot-starter-actuator',
-            'org.springframework.boot:spring-boot-starter-web',
-            'org.springframework.cloud:spring-cloud-starter-config',
-            'org.springframework.cloud:spring-cloud-starter-openfeign',
-            'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
-            'org.springframework.cloud:spring-cloud-starter-netflix-ribbon',
-            'org.springframework.cloud:spring-cloud-starter-netflix-hystrix',
-            'org.springframework.cloud:spring-cloud-netflix-hystrix-dashboard',
-            'io.springfox:springfox-swagger2:2.9.2',
-            'io.springfox:springfox-swagger-ui:2.9.2'
+            "org.springframework.boot:spring-boot-starter-actuator",
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.cloud:spring-cloud-starter-config",
+            "org.springframework.cloud:spring-cloud-starter-openfeign",
+            "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client",
+            "org.springframework.cloud:spring-cloud-starter-netflix-ribbon",
+            "org.springframework.cloud:spring-cloud-starter-netflix-hystrix",
+            "org.springframework.cloud:spring-cloud-netflix-hystrix-dashboard",
+            "io.springfox:springfox-swagger2:$swaggerVersion",
+            "io.springfox:springfox-swagger-ui:$swaggerVersion"
     )
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
