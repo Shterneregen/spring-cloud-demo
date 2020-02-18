@@ -4,7 +4,8 @@
 ```cmd
 build.bat
 ```
-- Run the project in Docker
+- Run the project in Docker  
+_Before running the project it's needed to check that all entrypoint.sh files has LF line separator_
 ```cmd
 docker-compose up -d
 ```
