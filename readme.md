@@ -2,17 +2,25 @@
 
 - Build the project
 ```cmd
-build.bat
+gradlew clean build
 ```
+
 - Run the project in Docker  
-_Before running the project it's needed to check that all entrypoint.sh files has LF line separator_
+    - _Before running the project it's needed to check that all **entrypoint.sh** files have **LF** line separator_  
+    - _To rebuild docker images use **--build** options_
 ```cmd
-docker-compose up -d
+docker-compose up -d [--build]
 ```
+
 - Stop the project
 ```cmd
 docker-compose down
 ```
+
+---
+
+###### Services' URLs  
+
 config-server http://localhost:9000/room-services/default  
 eureka-server http://localhost:8761
 
@@ -30,6 +38,8 @@ http://localhost:8500/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8500%2Fact
 reservation-webapp  
 http://localhost:8600/reservations  
 http://localhost:8600/reservations?date=2019-01-01
+
+---
 
 ![diagram](diagram.jpeg)
 
